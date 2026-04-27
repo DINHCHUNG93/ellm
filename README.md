@@ -1,3 +1,24 @@
+
+🚀 Một dự án nguồn mở tiềm năng – Framework nguồn mở giúp chạy LLM inference trên CPU nhanh hơn cả GPU trong một số bài toán long-context.
+
+Thay vì phụ thuộc hoàn toàn vào GPU đắt đỏ, eLLM tận dụng sức mạnh của CPU server hiện đại như Xeon/EPYC với RAM lớn và cache khủng để xử lý prompt dài cực hiệu quả.
+
+Điểm nổi bật nhất là khả năng single-pass prefill: xử lý toàn bộ prompt dài hàng trăm nghìn đến triệu token chỉ trong một lần, giảm mạnh Time To First Token (TTFT) – điều rất quan trọng cho AI Agents, RAG, Code Copilot và Deep Research.
+
+Các tối ưu đáng chú ý:
+• Attention head-by-head giúp tận dụng tối đa L3 cache
+• Static-shape KV cache tránh overhead paged attention
+• Tương thích API với vLLM, dễ tích hợp hệ thống hiện có
+• Viết bằng Rust, tối ưu hiệu năng và memory safety
+• Chi phí hạ tầng thấp hơn rất nhiều so với cụm multi-GPU
+
+Theo dự án, một server CPU mạnh có thể cạnh tranh trực tiếp với node 8 GPU H20 trong các workload prefill-heavy và long-context — trong khi chi phí thấp hơn hàng chục lần.
+
+eLLM cho thấy tương lai inference AI không nhất thiết phải là “GPU or nothing”, mà là chọn đúng phần cứng cho đúng workload.
+
+#eLLM #OpenSource #AIInfrastructure
+
+
 # eLLM: Run LLM Inference on CPUs Faster Than on GPUs
 ## eLLM Makes CPUs (Xeon/EPYC) the Best Inference AI Chips
 👉 Project home: [https://github.com/lucienhuangfu/eLLM](https://github.com/lucienhuangfu/eLLM)  
